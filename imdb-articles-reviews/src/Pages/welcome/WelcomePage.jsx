@@ -15,6 +15,13 @@ export default function welcome() {
           Continue freely
         </button>
       </div>
+      {/* Login & Signup forms */}
+      <div className="log-in-form">
+        <h1>Login</h1>
+        <input type="text" className="text-input" placeholder="Username" />
+        <br />
+        <input type="password" className="text-input" placeholder="Password" />
+      </div>
     </div>
   );
 }
