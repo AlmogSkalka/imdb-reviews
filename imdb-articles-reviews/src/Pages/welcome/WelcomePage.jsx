@@ -3,9 +3,25 @@ import * as FaIcons from "react-icons/fa";
 
 export default function WelcomePage() {
   const [ShowPassword, setShowPassword] = useState(false);
+  const [loginForm, setloginForm] = useState({
+    username: "",
+    password: "",
+  });
 
   const [ShowRegistrationPassword, setShowRegistrationPassword] =
     useState(false);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setloginForm({
+      ...loginForm,
+      [name]: value,
+    });
+  };
+  const handleLoginSubmit = (event) => {
+    event.preventDefault();
+    console.log("Form submitted with data:", loginForm);
+  };
 
   //show signin password
   const togglePassword = () => {
@@ -30,21 +46,29 @@ export default function WelcomePage() {
           Continue freely
         </button>
       </div>
+
       {/* Login & Signup forms */}
+
       {/* Login Form */}
       <div className="log-in-form">
         <h1>Login</h1>
         <input
           type="text"
           className="text-input"
+          name="username"
           placeholder="email@email.com"
+          value={loginForm.username}
+          onChange={handleInputChange}
         />
         <br />
         <br />
         <input
           type={ShowPassword ? "text" : "password"}
           className="text-input"
+          name="password"
           placeholder="Password"
+          value={loginForm.password}
+          onChange={handleInputChange}
         />{" "}
         {ShowPassword ? (
           <FaIcons.FaRegEyeSlash onClick={togglePassword} />
@@ -53,8 +77,11 @@ export default function WelcomePage() {
         )}
         <br />
         <br />
-        <button className="log-in-btn">Login!</button>
+        <button className="log-in-btn" onClick={handleLoginSubmit}>
+          Login!
+        </button>
       </div>
+
       {/* Signup Form */}
       <div className="sign-up-form">
         <h1>Signup</h1>
