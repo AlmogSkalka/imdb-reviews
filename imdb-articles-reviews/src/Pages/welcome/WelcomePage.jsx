@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import * as FaIcons from "react-icons/fa";
+import "./welcome.css";
 
 export default function WelcomePage() {
   const [ShowPassword, setShowPassword] = useState(false);
@@ -68,69 +69,71 @@ export default function WelcomePage() {
       {/* Login & Signup forms */}
 
       {/* Login Form */}
-      <div className="log-in-form">
-        <h1>Login</h1>
-        <input
-          type="text"
-          className="text-input"
-          name="username"
-          placeholder="email@email.com"
-          value={loginForm.username}
-          onChange={handleLoginInputChange}
-        />
-        <br />
-        <br />
-        <input
-          type={ShowPassword ? "text" : "password"}
-          className="text-input"
-          name="password"
-          placeholder="Password"
-          value={loginForm.password}
-          onChange={handleLoginInputChange}
-        />{" "}
-        {ShowPassword ? (
-          <FaIcons.FaRegEyeSlash onClick={togglePassword} />
-        ) : (
-          <FaIcons.FaRegEye onClick={togglePassword} />
-        )}
-        <br />
-        <br />
-        <button className="log-in-btn" onClick={handleLoginSubmit}>
-          Login!
-        </button>
-      </div>
+      <div className="forms">
+        <div className="log-in-form">
+          <h1>Login</h1>
+          <input
+            type="text"
+            className="text-input"
+            name="username"
+            placeholder="email@email.com"
+            value={loginForm.username}
+            onChange={handleLoginInputChange}
+          />
+          <br />
+          <br />
+          <input
+            type={ShowPassword ? "text" : "password"}
+            className="text-input"
+            name="password"
+            placeholder="Password"
+            value={loginForm.password}
+            onChange={handleLoginInputChange}
+          />{" "}
+          {ShowPassword ? (
+            <FaIcons.FaRegEyeSlash onClick={togglePassword} />
+          ) : (
+            <FaIcons.FaRegEye onClick={togglePassword} />
+          )}
+          <br />
+          <br />
+          <button className="log-in-btn" onClick={handleLoginSubmit}>
+            Login!
+          </button>
+        </div>
 
-      {/* Signup Form */}
-      <div className="sign-up-form">
-        <h1>Signup</h1>
-        <input
-          type="text"
-          className="text-input"
-          placeholder="email@email.com"
-          name="username"
-          value={signupForm.username}
-          onChange={handleSignupInputChange}
-        />
-        <br />
-        <br />
-        <input
-          type={ShowRegistrationPassword ? "text" : "password"}
-          className="text-input"
-          placeholder="Password"
-          name="password"
-          value={signupForm.password}
-          onChange={handleSignupInputChange}
-        />{" "}
-        {ShowRegistrationPassword ? (
-          <FaIcons.FaRegEyeSlash onClick={toggleRegistrationPassword} />
-        ) : (
-          <FaIcons.FaRegEye onClick={toggleRegistrationPassword} />
-        )}
-        <br />
-        <br />
-        <button className="sign-up-btn" onClick={handleSignupSubmit}>
-          Sign up!
-        </button>
+        {/* Signup Form */}
+        <div className="sign-up-form">
+          <h1>Signup</h1>
+          <input
+            type="text"
+            className="text-input"
+            placeholder="email@email.com"
+            name="username"
+            value={signupForm.username}
+            onChange={handleSignupInputChange}
+          />
+          <br />
+          <br />
+          <input
+            type={ShowRegistrationPassword ? "text" : "password"}
+            className="text-input"
+            placeholder="Password"
+            name="password"
+            value={signupForm.password}
+            onChange={handleSignupInputChange}
+          />{" "}
+          {ShowRegistrationPassword ? (
+            <FaIcons.FaRegEyeSlash onClick={toggleRegistrationPassword} />
+          ) : (
+            <FaIcons.FaRegEye onClick={toggleRegistrationPassword} />
+          )}
+          <br />
+          <br />
+          <button className="sign-up-btn" onClick={handleSignupSubmit}>
+            Sign up!
+          </button>
+        </div>
       </div>
     </div>
   );
