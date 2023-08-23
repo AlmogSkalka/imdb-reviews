@@ -3,7 +3,11 @@ import * as FaIcons from "react-icons/fa";
 
 export default function WelcomePage() {
   const [ShowPassword, setShowPassword] = useState(false);
-  const [loginForm, setloginForm] = useState({
+  const [loginForm, setLoginForm] = useState({
+    username: "",
+    password: "",
+  });
+  const [signupForm, setSignupForm] = useState({
     username: "",
     password: "",
   });
@@ -11,16 +15,30 @@ export default function WelcomePage() {
   const [ShowRegistrationPassword, setShowRegistrationPassword] =
     useState(false);
 
-  const handleInputChange = (event) => {
+  const handleLoginInputChange = (event) => {
     const { name, value } = event.target;
-    setloginForm({
+    setLoginForm({
       ...loginForm,
       [name]: value,
     });
   };
+
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    console.log("Form submitted with data:", loginForm);
+    console.log("Login Form submitted with data:", loginForm);
+  };
+
+  const handleSignupInputChange = (event) => {
+    const { name, value } = event.target;
+    setSignupForm({
+      ...signupForm,
+      [name]: value,
+    });
+  };
+
+  const handleSignupSubmit = (event) => {
+    event.preventDefault();
+    console.log("Signup Form submitted with data:", signupForm);
   };
 
   //show signin password
@@ -58,7 +76,7 @@ export default function WelcomePage() {
           name="username"
           placeholder="email@email.com"
           value={loginForm.username}
-          onChange={handleInputChange}
+          onChange={handleLoginInputChange}
         />
         <br />
         <br />
@@ -68,7 +86,7 @@ export default function WelcomePage() {
           name="password"
           placeholder="Password"
           value={loginForm.password}
-          onChange={handleInputChange}
+          onChange={handleLoginInputChange}
         />{" "}
         {ShowPassword ? (
           <FaIcons.FaRegEyeSlash onClick={togglePassword} />
@@ -89,6 +107,9 @@ export default function WelcomePage() {
           type="text"
           className="text-input"
           placeholder="email@email.com"
+          name="username"
+          value={signupForm.username}
+          onChange={handleSignupInputChange}
         />
         <br />
         <br />
@@ -96,6 +117,9 @@ export default function WelcomePage() {
           type={ShowRegistrationPassword ? "text" : "password"}
           className="text-input"
           placeholder="Password"
+          name="password"
+          value={signupForm.password}
+          onChange={handleSignupInputChange}
         />{" "}
         {ShowRegistrationPassword ? (
           <FaIcons.FaRegEyeSlash onClick={toggleRegistrationPassword} />
@@ -104,7 +128,9 @@ export default function WelcomePage() {
         )}
         <br />
         <br />
-        <button className="sign-up-btn">Sign up!</button>
+        <button className="sign-up-btn" onClick={handleSignupSubmit}>
+          Sign up!
+        </button>
       </div>
     </div>
   );
