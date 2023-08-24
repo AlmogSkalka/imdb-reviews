@@ -1,10 +1,10 @@
 import { useState } from "react";
 import "./welcome.css";
 import SignupForm from "./Comps/SignupForm";
-import SigninForm from "./Comps/SigninForm";
+import LoginForm from "./Comps/LoginForm";
 
 export default function WelcomePage() {
-  const [ShowPassword, setShowPassword] = useState(false);
+  // Form Data
   const [loginForm, setLoginForm] = useState({
     username: "",
     password: "",
@@ -12,13 +12,24 @@ export default function WelcomePage() {
   const [signupForm, setSignupForm] = useState({
     username: "",
     password: "",
+    fullName: "",
   });
-  const [showLogin, setShowLogin] = useState(true);
-  const [ShowRegistrationPassword, setShowRegistrationPassword] =
-    useState(false);
 
+  // UI States
+  const [showPassword, setShowPassword] = useState(false);
+  const [showLogin, setShowLogin] = useState(true);
+  const [showSignupPassword, setShowSignupPassword] = useState(false);
+  const [loginPasswordStrExist, setLoginPasswordStrExist] = useState(false);
+  const [signupPasswordStrExist, setSignupPasswordStrExist] = useState(false);
+
+  // Handlers
   const handleLoginInputChange = (event) => {
     const { name, value } = event.target;
+    name === "password"
+      ? value.length > 0
+        ? setLoginPasswordStrExist(true)
+        : setLoginPasswordStrExist(false)
+      : null;
     setLoginForm({
       ...loginForm,
       [name]: value,
@@ -32,6 +43,12 @@ export default function WelcomePage() {
 
   const handleSignupInputChange = (event) => {
     const { name, value } = event.target;
+    name === "password"
+      ? value.length > 0
+        ? setSignupPasswordStrExist(true)
+        : setSignupPasswordStrExist(false)
+      : null;
+
     setSignupForm({
       ...signupForm,
       [name]: value,
@@ -43,21 +60,27 @@ export default function WelcomePage() {
     console.log("Signup Form submitted with data:", signupForm);
   };
 
-  //show signin password
-  const togglePassword = () => {
+  // Togglres
+  const toggleLoginPassword = () => {
     setShowPassword((prevState) => !prevState);
   };
 
-  //show signup password
   const toggleRegistrationPassword = () => {
-    setShowRegistrationPassword((prevState) => !prevState);
+    setShowSignupPassword((prevState) => !prevState);
   };
 
-  const toggleLogSignPage = () => {
+  const togglePage = () => {
+    loginForm.password.length > 0
+      ? setLoginPasswordStrExist(true)
+      : setLoginPasswordStrExist(false);
+    signupForm.password.length > 0
+      ? setSignupPasswordStrExist(true)
+      : setSignupPasswordStrExist(false);
     setShowLogin((prevState) => !prevState);
   };
+
   return (
-    <div className="container">
+    <div className={showLogin ? "container" : "signup-container"}>
       <div className="side-div">
         <h2>Welcome to IMDB Articles & Reviews platform! </h2>
         <p>
@@ -65,11 +88,11 @@ export default function WelcomePage() {
           articles and add your reviews to the articles
         </p>
         {showLogin ? (
-          <button className="sign-up" onClick={toggleLogSignPage}>
+          <button className="sign-up" onClick={togglePage}>
             Sign up
           </button>
         ) : (
-          <button className="log-in" onClick={toggleLogSignPage}>
+          <button className="log-in" onClick={togglePage}>
             Log in
           </button>
         )}
@@ -82,20 +105,28 @@ export default function WelcomePage() {
 
       <div className="forms">
         {showLogin ? (
-          <SigninForm
-            formData={SigninForm}
-            showPassword={ShowPassword}
-            togglePassword={togglePassword}
+          <LoginForm
+            formData={loginForm}
+            showPassword={showPassword}
+            togglePassword={toggleLoginPassword}
             handleInputChange={handleLoginInputChange}
             handleSubmit={handleLoginSubmit}
+            showPasswordIcon={loginPasswordStrExist}
+            togglePasswordIcon={(prevState) =>
+              setLoginPasswordStrExist(!prevState)
+            }
           />
         ) : (
           <SignupForm
             formData={signupForm}
-            showPassword={ShowRegistrationPassword}
+            showPassword={showSignupPassword}
             togglePassword={toggleRegistrationPassword}
             handleInputChange={handleSignupInputChange}
             handleSubmit={handleSignupSubmit}
+            showPasswordIcon={signupPasswordStrExist}
+            togglePasswordIcon={(prevState) =>
+              setSignupPasswordStrExist(!prevState)
+            }
           />
         )}
       </div>

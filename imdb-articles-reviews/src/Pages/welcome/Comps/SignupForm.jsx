@@ -7,10 +7,22 @@ function SignupForm({
   togglePassword,
   handleInputChange,
   handleSubmit,
+  showPasswordIcon,
+  togglePasswordIcon,
 }) {
   return (
     <div className="sign-up-form">
-      <h1>Sign up</h1>
+      <h1>Sign up</h1>{" "}
+      <input
+        type="text"
+        className="text-input"
+        placeholder="Full Name"
+        name="fullName"
+        value={formData.fullName}
+        onChange={handleInputChange}
+      />
+      <br />
+      <br />
       <input
         type="text"
         className="text-input"
@@ -29,11 +41,15 @@ function SignupForm({
         value={formData.password}
         onChange={handleInputChange}
       />{" "}
-      {showPassword ? (
-        <FaIcons.FaRegEyeSlash onClick={togglePassword} />
-      ) : (
-        <FaIcons.FaRegEye onClick={togglePassword} />
-      )}
+      <div className="password-icon">
+        {showPasswordIcon ? (
+          showPassword ? (
+            <FaIcons.FaRegEyeSlash onClick={togglePassword} />
+          ) : (
+            <FaIcons.FaRegEye onClick={togglePassword} />
+          )
+        ) : null}
+      </div>
       <br />
       <br />
       <button className="sign-up-btn" onClick={handleSubmit}>

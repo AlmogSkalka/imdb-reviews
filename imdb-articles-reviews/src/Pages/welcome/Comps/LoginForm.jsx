@@ -1,12 +1,14 @@
 import React from "react";
 import * as FaIcons from "react-icons/fa";
 
-function SigninForm({
+function LoginForm({
   formData,
   showPassword,
   togglePassword,
   handleInputChange,
   handleSubmit,
+  showPasswordIcon,
+  togglePasswordIcon,
 }) {
   return (
     <div className="log-in-form">
@@ -29,18 +31,22 @@ function SigninForm({
         value={formData.password}
         onChange={handleInputChange}
       />{" "}
-      {showPassword ? (
-        <FaIcons.FaRegEyeSlash onClick={togglePassword} />
-      ) : (
-        <FaIcons.FaRegEye onClick={togglePassword} />
-      )}
+      <div className="password-icon">
+        {showPasswordIcon ? (
+          showPassword ? (
+            <FaIcons.FaRegEyeSlash onClick={togglePassword} />
+          ) : (
+            <FaIcons.FaRegEye onClick={togglePassword} />
+          )
+        ) : null}
+      </div>
       <br />
       <br />
       <button className="log-in-btn" onClick={handleSubmit}>
-        Sign up!
+        Log in!
       </button>
     </div>
   );
 }
 
-export default SigninForm;
+export default LoginForm;
