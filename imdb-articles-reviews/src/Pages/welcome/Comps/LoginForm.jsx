@@ -20,6 +20,7 @@ function LoginForm({
         name="username"
         value={formData.username}
         onChange={handleInputChange}
+        required
       />
       <br />
       <br />
@@ -30,6 +31,7 @@ function LoginForm({
         name="password"
         value={formData.password}
         onChange={handleInputChange}
+        required
       />{" "}
       <div className="password-icon">
         {showPasswordIcon ? (

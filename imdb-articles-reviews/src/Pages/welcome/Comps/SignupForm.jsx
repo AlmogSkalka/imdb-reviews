@@ -20,6 +20,7 @@ function SignupForm({
         name="fullName"
         value={formData.fullName}
         onChange={handleInputChange}
+        required // Ensure the required attribute is added
       />
       <br />
       <br />
@@ -30,6 +31,7 @@ function SignupForm({
         name="username"
         value={formData.username}
         onChange={handleInputChange}
+        required // Ensure the required attribute is added
       />
       <br />
       <br />
@@ -40,6 +42,7 @@ function SignupForm({
         name="password"
         value={formData.password}
         onChange={handleInputChange}
+        required
       />{" "}
       <div className="password-icon">
         {showPasswordIcon ? (

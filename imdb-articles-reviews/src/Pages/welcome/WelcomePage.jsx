@@ -25,42 +25,55 @@ export default function WelcomePage() {
   // Handlers
   const handleLoginInputChange = (event) => {
     const { name, value } = event.target;
-    name === "password"
-      ? value.length > 0
-        ? setLoginPasswordStrExist(true)
-        : setLoginPasswordStrExist(false)
-      : null;
     setLoginForm({
       ...loginForm,
       [name]: value,
     });
+
+    //making sure password text exists and beyond
+    setLoginPasswordStrExist(name === "password" && value.length > 0);
+    // name === "password"
+    //   ? value.length > 0
+    //     ? setLoginPasswordStrExist(true)
+    //     : setLoginPasswordStrExist(false)
+    //   : null;
   };
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    console.log("Login Form submitted with data:", loginForm);
+    if (loginForm.username !== "" && loginForm.password !== "")
+      console.log("Login Form submitted with data:", loginForm);
+    else console.log("You didnt inserted login data");
   };
 
   const handleSignupInputChange = (event) => {
     const { name, value } = event.target;
-    name === "password"
-      ? value.length > 0
-        ? setSignupPasswordStrExist(true)
-        : setSignupPasswordStrExist(false)
-      : null;
-
     setSignupForm({
       ...signupForm,
       [name]: value,
     });
+
+    //making sure password text exists and beyond
+    setSignupPasswordStrExist(name === "password" && value.length > 0);
+    // name === "password"
+    //   ? value.length > 0
+    //     ? setSignupPasswordStrExist(true)
+    //     : setSignupPasswordStrExist(false)
+    //   : null;
   };
 
   const handleSignupSubmit = (event) => {
     event.preventDefault();
-    console.log("Signup Form submitted with data:", signupForm);
+    if (
+      signupForm.fullName !== "" &&
+      signupForm.username !== "" &&
+      signupForm.password !== ""
+    )
+      console.log("Signup Form submitted with data:", signupForm);
+    else console.log("You didnt inserted signup data");
   };
 
-  // Togglres
+  // Toggles
   const toggleLoginPassword = () => {
     setShowPassword((prevState) => !prevState);
   };
