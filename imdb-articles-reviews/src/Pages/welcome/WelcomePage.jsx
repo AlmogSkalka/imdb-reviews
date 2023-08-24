@@ -88,17 +88,22 @@ export default function WelcomePage() {
           articles and add your reviews to the articles
         </p>
         {showLogin ? (
-          <button className="sign-up" onClick={togglePage}>
-            Sign up
-          </button>
+          <>
+            {" "}
+            <button className="sign-up" onClick={togglePage}>
+              Sign up
+            </button>
+            <button className="without-user" title="Without registering...">
+              Continue freely
+            </button>
+          </>
         ) : (
-          <button className="log-in" onClick={togglePage}>
-            Log in
-          </button>
+          <>
+            <button className="log-in" onClick={togglePage}>
+              Log in
+            </button>
+          </>
         )}
-        <button className="without-user" title="Without registering...">
-          Continue freely
-        </button>
       </div>
 
       {/* Login & Signup forms */}
