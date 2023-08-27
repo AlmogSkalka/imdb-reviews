@@ -1,6 +1,6 @@
 # IMDB Articles & Reviews Platform
 
-Welcome to the IMDB Articles & Reviews platform! This project **currently** showcases a user authentication system with login and signup forms using React and Vite. **Currently**, users can only sign up, log in, and access articles and reviews on the platform.
+Welcome to the IMDB Articles & Reviews platform! This project **currently** showcases a user authentication system with login and signup forms using React and Vite. **Currently**, users can only sign up and log in (All info is sent to console.log).
 
 ## Getting Started
 
