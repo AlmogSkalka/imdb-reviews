@@ -8,7 +8,7 @@ To get started with this project, follow these steps:
 
 1. Clone the repository to your local machine:
    ```sh
-   git clone <repository_url>
+   git clone <[repository_url](https://github.com/AlmogSkalka/imdb-reviews.git)>
    ```
 
 2. Navigate to the project directory:
@@ -57,7 +57,7 @@ The project structure is organized as follows:
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
 
-Created by [Your Name]
+Created by [AlmogSkalka]
 ```
 
 Remember to replace `<repository_url>` and `[Your Name]` with the appropriate values. This version of the README highlights the Vite-specific setup and mentions the `npm run dev` command for running the development server using Vite.
