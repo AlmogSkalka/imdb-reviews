@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./welcome.css";
 import SignupForm from "./Comps/SignupForm";
 import LoginForm from "./Comps/LoginForm";
-
+import validatePassword from "./Comps/validatePassword";
 export default function WelcomePage() {
   // Form Data
   const [loginForm, setLoginForm] = useState({
@@ -64,13 +64,26 @@ export default function WelcomePage() {
 
   const handleSignupSubmit = (event) => {
     event.preventDefault();
+
     if (
       signupForm.fullName !== "" &&
       signupForm.username !== "" &&
       signupForm.password !== ""
-    )
-      console.log("Signup Form submitted with data:", signupForm);
-    else console.log("You didnt inserted signup data");
+    ) {
+      console.log(
+        "Testing the password. MINIMUM: 8 chars, one capital, one regular, one special char. --> ",
+        validatePassword(signupForm.password)
+      );
+      console.log(
+        "Signup form submitted with the following data: ",
+        signupForm
+      );
+    }
+
+    //
+    else {
+      console.log("Signup Form submitted with incomplete data:", signupForm);
+    }
   };
 
   // Toggles
