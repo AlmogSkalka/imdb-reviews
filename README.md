@@ -8,7 +8,7 @@ To get started with this project, follow these steps:
 
 1. Clone the repository to your local machine:
    ```sh
-   git clone <[repository_url](https://github.com/AlmogSkalka/imdb-reviews.git)>
+   git clone <(https://github.com/AlmogSkalka/imdb-reviews.git)>
    ```
 
 2. Navigate to the project directory:
