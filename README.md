@@ -58,6 +58,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 
 Created by [AlmogSkalka]
-```
-
-Remember to replace `<repository_url>` and `[Your Name]` with the appropriate values. This version of the README highlights the Vite-specific setup and mentions the `npm run dev` command for running the development server using Vite.
