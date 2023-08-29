@@ -44,6 +44,7 @@ I've included a utility function named `isSecuredPassword` that can help you val
 
 The project structure is organized as follows:
 
+   ```
 
 src/
   main.js: Entry point for the Vite application.
@@ -53,6 +54,7 @@ src/
     LoginForm.js: Component for the login form.
   welcome.css: CSS file for styling the welcome page.
 public/: Contains the HTML file and other public assets.
+   ```
 
 ## How to Use
 
