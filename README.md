@@ -44,16 +44,17 @@ I've included a utility function named `isSecuredPassword` that can help you val
 
 The project structure is organized as follows:
 
-```
+   ```
 src/
   main.js: Entry point for the Vite application.
   WelcomePage.js: The main component displaying the welcome page and handling form states and submissions.
   Comps/
     SignupForm.js: Component for the signup form.
     LoginForm.js: Component for the login form.
+    validatePassword.js: Component for the signup password validate.
   welcome.css: CSS file for styling the welcome page.
 public/: Contains the HTML file and other public assets.
-```
+   ```
 
 ## How to Use
 
@@ -67,6 +68,3 @@ Contributions are welcome! If you find any issues or have suggestions for improv
 
 Created by AlmogSkalka
 
-```
-
-```
