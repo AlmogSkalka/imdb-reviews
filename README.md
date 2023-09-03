@@ -1,6 +1,6 @@
-# IMDB Articles & Reviews Platform
+# SWAPI Articles & Reviews Platform
 
-Welcome to the IMDB Articles & Reviews platform! **Currently**, this project showcases a user authentication system with login and signup forms using React and Vite. Users can sign up and log in (All info is sent to console.log).
+Welcome to the Swapi Articles & Reviews platform! **Currently**, this project showcases a user authentication system with login and signup forms using React and Vite. Users can sign up and log in (All info is sent to console.log and LocalStorage).
 
 ## Getting Started
 
@@ -9,13 +9,13 @@ To get started with this project, follow these steps:
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/AlmogSkalka/imdb-reviews.git
+   git clone https://github.com/AlmogSkalka/swapi-reviews.git
    ```
 
-2. Navigate to the project directory:
+2. Navigate to the client directory:
 
    ```
-   cd IMDB-Articles-Reviews-Platform
+   cd '.\Client\'
    ```
 
 3. Install dependencies using Yarn:
@@ -30,30 +30,49 @@ To get started with this project, follow these steps:
    yarn dev
    ```
 
+5. Navigate to the server directory:
+
+   ```
+   cd '.\Server\'
+   ```
+
+6. Install dependencies using npm:
+
+   ```
+   npm i
+   ```
+
+7. Run the server using npm nodemon:
+
+   ```
+   npm run dev
+   ```
+
+8. In your browser, go to your Client localhost and enjoy the program :)
+
+
+
 ## Current Features
 
 - User authentication with login and signup forms.
 - Toggle password visibility.
 - Ability to submit login and signup forms.
+- Password standard validation
 
 ## News and Updates
 
-**August 2023**: Added Server-Side Integration
+**August 2023**: 
+Aug 29th
+I've added server-side integration to enhance the functionality of the platform. The server-side component is built using Node.js, Express, and CORS. This integration allows the application to communicate with a server, enhancing data retrieval and overall performance.
 
-We've added server-side integration to enhance the functionality of the platform. The server-side component is built using Node.js, Express, and CORS. This integration allows the application to communicate with a server, enhancing data retrieval and overall performance.
-
-## Current Utilities
-
-### isSecuredPassword Utility Function
-
-We've included a utility function named `isSecuredPassword` that helps you validate password security according to specific criteria. This function is useful when users are signing up and creating accounts. It checks whether a password meets specific requirements.
+Aug 27th
+I've included a utility function named `isSecuredPassword` that helps you validate password security according to specific criteria. This function is useful when users are signing up and creating accounts. It checks whether a password meets specific requirements.
 
 ## Project Structure
 
 The project structure is organized as follows:
 
 - `Client/`
-
   - `src/`
     - `main.js`: Entry point for the Vite application.
     - `WelcomePage.js`: The main component displaying the welcome page and handling form states and submissions.
