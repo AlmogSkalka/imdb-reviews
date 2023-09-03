@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./welcome.css";
 import SignupForm from "./Comps/SignupForm";
 import LoginForm from "./Comps/LoginForm";
 import validatePassword from "./Comps/validatePassword";
 export default function WelcomePage() {
+  const navigate = useNavigate();
   // Form Data
   const [loginForm, setLoginForm] = useState({
     username: "",
@@ -41,9 +43,11 @@ export default function WelcomePage() {
 
   const handleLoginSubmit = (event) => {
     event.preventDefault();
-    if (loginForm.username !== "" && loginForm.password !== "")
+    if (loginForm.username !== "" && loginForm.password !== "") {
       console.log("Login Form submitted with data:", loginForm);
-    else console.log("You didnt inserted login data");
+      localStorage.setItem("user", JSON.stringify(loginForm));
+      navigate("/articles");
+    } else console.log("You didnt inserted login data");
   };
 
   const handleSignupInputChange = (event) => {
