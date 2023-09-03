@@ -1,6 +1,6 @@
-# IMDB Articles & Reviews Platform
+# SWAPI Articles & Reviews Platform
 
-Welcome to the IMDB Articles & Reviews platform! **Currently**, this project showcases a user authentication system with login and signup forms using React and Vite. Users can sign up and log in (All info is sent to console.log).
+Welcome to the Swapi Articles & Reviews platform! **Currently**, this project showcases a user authentication system with login and signup forms using React and Vite. Users can sign up and log in (All info is sent to console.log and LocalStorage).
 
 ## Getting Started
 
@@ -9,7 +9,7 @@ To get started with this project, follow these steps:
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/AlmogSkalka/imdb-reviews.git
+   git clone https://github.com/AlmogSkalka/swapi-reviews.git
    ```
 
 2. Navigate to the client directory:
